@@ -1,0 +1,50 @@
+unit uDmConexao;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DBXFirebird, Data.DB, Data.SqlExpr,
+  Datasnap.DBClient, SimpleDS, IniFiles, Data.FMTBcd;
+
+type
+  TdmConexao = class(TDataModule)
+    SQLConnection1: TSQLConnection;
+    DataSource1: TDataSource;
+    SimpleDataSet1: TSimpleDataSet;
+    SimpleDataSet1ID_PRODUTO: TIntegerField;
+    SimpleDataSet1NM_PRODUTO: TStringField;
+    SimpleDataSet1QT_SALDO: TIntegerField;
+    SimpleDataSet1VL_PRODUTO: TFMTBCDField;
+    SimpleDataSet1NM_CATEGORIA: TStringField;
+    SQLQueryCadastro: TSQLQuery;
+    procedure DataModuleCreate(Sender: TObject);
+    procedure SQLConnection1BeforeConnect(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dmConexao: TdmConexao;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+procedure TdmConexao.DataModuleCreate(Sender: TObject);
+var
+  Caminho : String;
+begin
+  SQLConnection1.Connected := true;
+  SimpleDataSet1.Active := true;
+end;
+
+procedure TdmConexao.SQLConnection1BeforeConnect(Sender: TObject);
+begin
+  SQLConnection1.Params.Values['Database'] := ExtractFilePath(ParamStr(0))+ 'db\Database.fdb';
+end;
+
+end.

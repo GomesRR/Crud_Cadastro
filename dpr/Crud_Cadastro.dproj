@@ -111,6 +111,18 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
+        <DCCReference Include="..\pas\uCadCategoria.pas">
+            <Form>frmCadCategoria</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\uTipoCadastro.pas">
+            <Form>frmTipoCadastro</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\uCadProduto.pas">
+            <Form>frmCadProduto</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

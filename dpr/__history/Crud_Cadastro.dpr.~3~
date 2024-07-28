@@ -1,0 +1,18 @@
+program Crud_Cadastro;
+
+uses
+  Vcl.Forms,
+  UPrincipal in '..\pas\UPrincipal.pas' {frmPrincipal},
+  uDmConexao in '..\pas\uDmConexao.pas' {dmConexao: TDataModule},
+  uCadCategoria in '..\pas\uCadCategoria.pas' {frmCadCategoria};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TdmConexao, dmConexao);
+  Application.CreateForm(TfrmCadCategoria, frmCadCategoria);
+  Application.Run;
+end.

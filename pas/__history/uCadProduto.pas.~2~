@@ -1,0 +1,34 @@
+unit uCadProduto;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TfrmCadProduto = class(TForm)
+    Label1: TLabel;
+    Edit1: TEdit;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    ComboBox1: TComboBox;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Panel1: TPanel;
+    btnGravar: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadProduto: TfrmCadProduto;
+
+implementation
+
+{$R *.dfm}
+
+end.

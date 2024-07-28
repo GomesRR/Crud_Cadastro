@@ -4,18 +4,27 @@ interface
 
 uses
   System.SysUtils, System.Classes, Data.DBXFirebird, Data.DB, Data.SqlExpr,
-  Datasnap.DBClient, SimpleDS;
+  Datasnap.DBClient, SimpleDS, IniFiles, Data.FMTBcd;
 
 type
   TdmConexao = class(TDataModule)
     SQLConnection1: TSQLConnection;
-    DataSource1: TDataSource;
-    SimpleDataSet1: TSimpleDataSet;
-    SimpleDataSet1ID_PRODUTO: TIntegerField;
-    SimpleDataSet1NM_PRODUTO: TStringField;
-    SimpleDataSet1QT_SALDO: TIntegerField;
-    SimpleDataSet1VL_PRODUTO: TFMTBCDField;
-    SimpleDataSet1NM_CATEGORIA: TStringField;
+    dsoListaProdutos: TDataSource;
+    dtsListaProdutos: TSimpleDataSet;
+    dtsListaProdutosID_PRODUTO: TIntegerField;
+    dtsListaProdutosNM_PRODUTO: TStringField;
+    dtsListaProdutosQT_SALDO: TIntegerField;
+    dtsListaProdutosVL_PRODUTO: TFMTBCDField;
+    dtsListaProdutosNM_CATEGORIA: TStringField;
+    QueryCadastroCategoria: TSQLQuery;
+    QueryListaCategoria: TSQLQuery;
+    QueryCadastroProduto: TSQLQuery;
+    QueryListaCategoriaID_CATEGORIA: TIntegerField;
+    QueryListaCategoriaNM_CATEGORIA: TStringField;
+    dsoListaCategoria: TDataSource;
+    QueryExcluirProduto: TSQLQuery;
+    procedure DataModuleCreate(Sender: TObject);
+    procedure SQLConnection1BeforeConnect(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,5 +39,18 @@ implementation
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
+
+procedure TdmConexao.DataModuleCreate(Sender: TObject);
+var
+  Caminho : String;
+begin
+  SQLConnection1.Connected := true;
+  dtsListaProdutos.Active := true;
+end;
+
+procedure TdmConexao.SQLConnection1BeforeConnect(Sender: TObject);
+begin
+  SQLConnection1.Params.Values['Database'] := ExtractFilePath(ParamStr(0))+ 'db\Database.fdb';
+end;
 
 end.

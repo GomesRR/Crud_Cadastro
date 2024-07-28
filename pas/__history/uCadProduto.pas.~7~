@@ -1,0 +1,72 @@
+unit uCadProduto;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.DBCtrls;
+
+type
+  TfrmCadProduto = class(TForm)
+    lblNome: TLabel;
+    edtNome: TEdit;
+    lblCategoria: TLabel;
+    lblSaldo: TLabel;
+    lbValor: TLabel;
+    cmbCategoria: TComboBox;
+    edtSaldo: TEdit;
+    edtValor: TEdit;
+    pnlContainer: TPanel;
+    btnGravar: TButton;
+    DBComboBox1: TDBComboBox;
+    procedure cmbCategoriaChange(Sender: TObject);
+    procedure CarregarListaCategoria(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadProduto: TfrmCadProduto;
+  ID_Categoria : Integer;
+
+implementation
+
+{$R *.dfm}
+
+uses uDmConexao;
+
+procedure TfrmCadProduto.cmbCategoriaChange(Sender: TObject);
+begin
+  dmConexao.QueryListaCategoria.Close;
+  dmConexao.QueryListaCategoria.SQL.Clear;
+  dmConexao.QueryListaCategoria.SQL.Add('SELECT * FROM CATEGORIA WHERE NM_Categoria = '+QuotedStr(cmbCategoria.text));
+  dmConexao.QueryListaCategoria.Open;
+
+  ID_Categoria := dmConexao.QueryListaCategoria.FieldByName('ID_CATEGORIA').AsInteger;
+end;
+
+procedure TfrmCadProduto.FormShow(Sender: TObject);
+begin
+  CarregarLIstaCategoria(frmCadProduto);
+end;
+
+procedure TfrmCadProduto.CarregarListaCategoria(Sender: TObject);
+begin
+  cmbCategoria.Items.Clear;
+
+  dmConexao.QueryListaCategoria.Close;
+  dmConexao.QueryListaCategoria.SQL.Clear;
+  dmConexao.QueryListaCategoria.SQL.Add('SELECT * FROM CATEGORIA ORDER BY NM_CATEGORIA');
+  dmConexao.QueryListaCategoria.Open;
+
+  while not dmConexao.QueryListaCategoria.eof do
+  begin
+    cmbCategoria.Items.Add(dmConexao.QueryListaCategoria.FieldByName('NM_CATEGORIA').AsString);
+    dmConexao.QueryListaCategoria.Next;
+  end;
+end;
+
+end.

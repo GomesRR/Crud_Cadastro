@@ -1,6 +1,7 @@
 object frmPrincipal: TfrmPrincipal
   Left = 0
   Top = 0
+  BorderStyle = bsSingle
   Caption = 'Crud - Cadastro'
   ClientHeight = 360
   ClientWidth = 718
@@ -10,6 +11,8 @@ object frmPrincipal: TfrmPrincipal
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poDesktopCenter
+  OnCreate = FormCreate
   TextHeight = 15
   object pnlAcao: TPanel
     Left = 0
@@ -22,7 +25,7 @@ object frmPrincipal: TfrmPrincipal
       718
       81)
     object btnCadastrar: TSpeedButton
-      Left = 16
+      Left = 14
       Top = 7
       Width = 75
       Height = 68
@@ -271,7 +274,6 @@ object frmPrincipal: TfrmPrincipal
         F2DE069FCFC30476988F0240524B011015100000000000000000000000000000
         00000000000000000000000000000000000000000000}
       Layout = blGlyphTop
-      OnClick = btnCadastrarClick
     end
     object btnExcluir: TSpeedButton
       Left = 176
@@ -397,7 +399,7 @@ object frmPrincipal: TfrmPrincipal
         DFDD3525C0C2261B8E8E150F4E4A0504130F0000000000000000000000000000
         00000000000000000000000000000000000000000000}
       Layout = blGlyphTop
-      OnClick = btnCadastrarClick
+      OnClick = btnExcluirClick
     end
     object btnSair: TSpeedButton
       Left = 628
@@ -406,7 +408,7 @@ object frmPrincipal: TfrmPrincipal
       Height = 68
       Anchors = [akTop, akRight, akBottom]
       Caption = 'Sair'
-      OnClick = btnCadastrarClick
+      OnClick = btnSairClick
     end
   end
   object DBGrid1: TDBGrid
@@ -415,7 +417,7 @@ object frmPrincipal: TfrmPrincipal
     Width = 718
     Height = 279
     Align = alClient
-    DataSource = dmConexao.DataSource1
+    DataSource = dmConexao.dsoListaProdutos
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
