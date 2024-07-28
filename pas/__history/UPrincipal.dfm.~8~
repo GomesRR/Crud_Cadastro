@@ -415,53 +415,38 @@ object frmPrincipal: TfrmPrincipal
     Width = 718
     Height = 279
     Align = alClient
-    DataSource = dmConexao.DataSource1
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -12
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
-    Columns = <
-      item
-        Alignment = taCenter
-        Expanded = False
-        FieldName = 'ID_PRODUTO'
-        Title.Alignment = taCenter
-        Title.Caption = 'C'#243'd. Produto'
-        Width = 85
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'NM_PRODUTO'
-        Title.Caption = 'Produto'
-        Width = 251
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'NM_CATEGORIA'
-        Title.Alignment = taCenter
-        Title.Caption = 'Categoria'
-        Width = 152
-        Visible = True
-      end
-      item
-        Alignment = taCenter
-        Expanded = False
-        FieldName = 'QT_SALDO'
-        Title.Alignment = taCenter
-        Title.Caption = 'Saldo'
-        Visible = True
-      end
-      item
-        Alignment = taCenter
-        Expanded = False
-        FieldName = 'VL_PRODUTO'
-        Title.Alignment = taCenter
-        Title.Caption = 'Valor'
-        Visible = True
-      end>
+  end
+  object SQLConnection1: TSQLConnection
+    ConnectionName = 'FBConnection'
+    DriverName = 'Firebird'
+    LoginPrompt = False
+    Params.Strings = (
+      'DriverName=Firebird'
+      'Database=D:\Ronilson\Projetos_Git\Crud_Cadastro\db\DABATASE.FDB'
+      'RoleName=RoleName'
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'ServerCharSet='
+      'SQLDialect=3'
+      'ErrorResourceFile='
+      'LocaleCode=0000'
+      'BlobSize=-1'
+      'CommitRetain=False'
+      'WaitOnLocks=True'
+      'IsolationLevel=ReadCommitted'
+      'Trim Char=False')
+    Connected = True
+    Left = 336
+    Top = 8
+  end
+  object DataSource1: TDataSource
+    Left = 576
+    Top = 8
   end
 end

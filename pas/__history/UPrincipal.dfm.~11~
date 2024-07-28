@@ -424,7 +424,6 @@ object frmPrincipal: TfrmPrincipal
     TitleFont.Style = []
     Columns = <
       item
-        Alignment = taCenter
         Expanded = False
         FieldName = 'ID_PRODUTO'
         Title.Alignment = taCenter
@@ -448,7 +447,6 @@ object frmPrincipal: TfrmPrincipal
         Visible = True
       end
       item
-        Alignment = taCenter
         Expanded = False
         FieldName = 'QT_SALDO'
         Title.Alignment = taCenter
@@ -456,7 +454,6 @@ object frmPrincipal: TfrmPrincipal
         Visible = True
       end
       item
-        Alignment = taCenter
         Expanded = False
         FieldName = 'VL_PRODUTO'
         Title.Alignment = taCenter

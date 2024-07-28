@@ -15,6 +15,8 @@ type
     btnExcluir: TSpeedButton;
     btnSair: TSpeedButton;
     DBGrid1: TDBGrid;
+    SQLConnection1: TSQLConnection;
+    DataSource1: TDataSource;
     procedure btnCadastrarClick(Sender: TObject);
   private
     { Private declarations }
@@ -28,8 +30,6 @@ var
 implementation
 
 {$R *.dfm}
-
-uses uDmConexao;
 
 procedure TfrmPrincipal.btnCadastrarClick(Sender: TObject);
 begin

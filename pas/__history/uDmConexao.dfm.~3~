@@ -1,0 +1,43 @@
+object dmConexao: TdmConexao
+  Height = 480
+  Width = 640
+  object SQLConnection1: TSQLConnection
+    ConnectionName = 'FBConnection'
+    DriverName = 'Firebird'
+    LoginPrompt = False
+    Params.Strings = (
+      'DriverName=Firebird'
+      'Database=D:\Ronilson\Projetos_Git\Crud_Cadastro\db\DABATASE.FDB'
+      'RoleName=RoleName'
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'ServerCharSet='
+      'SQLDialect=3'
+      'ErrorResourceFile='
+      'LocaleCode=0000'
+      'BlobSize=-1'
+      'CommitRetain=False'
+      'WaitOnLocks=True'
+      'IsolationLevel=ReadCommitted'
+      'Trim Char=False')
+    Connected = True
+    Left = 56
+    Top = 32
+  end
+  object DataSource1: TDataSource
+    DataSet = SimpleDataSet1
+    Left = 264
+    Top = 32
+  end
+  object SimpleDataSet1: TSimpleDataSet
+    Active = True
+    Aggregates = <>
+    Connection = SQLConnection1
+    DataSet.CommandText = 'select * from PRODUTOS'
+    DataSet.MaxBlobSize = -1
+    DataSet.Params = <>
+    Params = <>
+    Left = 160
+    Top = 32
+  end
+end

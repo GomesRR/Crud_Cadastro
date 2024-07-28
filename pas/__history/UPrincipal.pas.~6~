@@ -29,8 +29,6 @@ implementation
 
 {$R *.dfm}
 
-uses uDmConexao;
-
 procedure TfrmPrincipal.btnCadastrarClick(Sender: TObject);
 begin
   Close;
