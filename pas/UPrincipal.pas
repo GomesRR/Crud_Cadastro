@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.ExtCtrls, Data.DB,
-  Vcl.Grids, Vcl.DBGrids, Data.DBXFirebird, Data.SqlExpr;
+  Vcl.Grids, Vcl.DBGrids, Data.SqlExpr, FireDAC.VCLUI.Wait;
 
 type
   TfrmPrincipal = class(TForm)
@@ -44,13 +44,13 @@ begin
   if MessageDlg ('Deseja mesmo excluir o registro? Esta ação não pode ser desfeita!', mtConfirmation,
                  [mbYes, mbNo], 0) = mrYes then
   begin
-    dmConexao.QueryExcluirProduto.Close;
-    dmConexao.QueryExcluirProduto.SQL.Clear;
-    dmConexao.QueryExcluirProduto.SQL.Add('DELETE FROM PRODUTOS WHERE ID_Produto = :ID_Produto');
-    dmConexao.QueryExcluirProduto.ParamByName('ID_Produto').Value := dmConexao.dtsListaProdutos.FieldByName('ID_Produto').AsInteger;
-    dmConexao.QueryExcluirProduto.ExecSQL;
+    dmConexao.qryExcluirProduto.Close;
+    dmConexao.qryExcluirProduto.SQL.Clear;
+    dmConexao.qryExcluirProduto.SQL.Add('DELETE FROM PRODUTOS WHERE ID_Produto = :ID_Produto');
+    dmConexao.qryExcluirProduto.ParamByName('ID_Produto').Value := dmConexao.qryListaProdutos.FieldByName('ID_Produto').AsInteger;
+    dmConexao.qryExcluirProduto.ExecSQL;
 
-    dmConexao.dtsListaProdutos.Refresh;
+    dmConexao.qryListaProdutos.Refresh;
   end;
 end;
 

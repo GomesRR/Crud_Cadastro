@@ -40,7 +40,7 @@ end;
 
 procedure TfrmTipoCadastro.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  dmConexao.dtsListaProdutos.Refresh;
+  dmConexao.qryListaProdutos.Refresh;
 end;
 
 end.

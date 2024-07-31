@@ -11,8 +11,10 @@ object frmCadProduto: TfrmCadProduto
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OldCreateOrder = True
   Position = poMainFormCenter
   OnShow = FormShow
+  PixelsPerInch = 96
   TextHeight = 15
   object lblNome: TLabel
     Left = 26
@@ -24,7 +26,7 @@ object frmCadProduto: TfrmCadProduto
   object lblCategoria: TLabel
     Left = 26
     Top = 57
-    Width = 67
+    Width = 65
     Height = 15
     Caption = 'CATEGORIA:'
   end
@@ -38,7 +40,7 @@ object frmCadProduto: TfrmCadProduto
   object lbValor: TLabel
     Left = 26
     Top = 119
-    Width = 40
+    Width = 39
     Height = 15
     Caption = 'VALOR:'
   end

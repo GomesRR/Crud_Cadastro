@@ -1,0 +1,85 @@
+unit uDmConexao;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, Data.SqlExpr,
+  Datasnap.DBClient, SimpleDS, IniFiles, Data.FMTBcd, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
+  FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
+  FireDAC.Phys.FB, FireDAC.Phys.FBDef, FireDAC.Comp.Client, Data.DBXFirebird;
+
+type
+  TdmConexao = class(TDataModule)
+    SQLConnection1: TSQLConnection;
+    dsoListaProdutos: TDataSource;
+    dtsListaProdutos: TSimpleDataSet;
+    dtsListaProdutosID_PRODUTO: TIntegerField;
+    dtsListaProdutosNM_PRODUTO: TStringField;
+    dtsListaProdutosQT_SALDO: TIntegerField;
+    dtsListaProdutosVL_PRODUTO: TFMTBCDField;
+    dtsListaProdutosNM_CATEGORIA: TStringField;
+    QueryCadastroCategoria: TSQLQuery;
+    QueryListaCategoria: TSQLQuery;
+    QueryCadastroProduto: TSQLQuery;
+    QueryListaCategoriaID_CATEGORIA: TIntegerField;
+    QueryListaCategoriaNM_CATEGORIA: TStringField;
+    dsoListaCategoria: TDataSource;
+    QueryExcluirProduto: TSQLQuery;
+    ConexaoBanco: TFDConnection;
+    procedure DataModuleCreate(Sender: TObject);
+    procedure SQLConnection1BeforeConnect(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dmConexao: TdmConexao;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+procedure TdmConexao.DataModuleCreate(Sender: TObject);
+var
+  ArquivoINI: TIniFile;
+  Server, User, Password, Database, AuxError, Driver : string;
+begin
+  SQLConnection1.Connected := true;
+  dtsListaProdutos.Active := true;
+
+  if (Conexaobanco.Connected) then
+  begin
+         Conexaobanco.Connected:= False;
+  end;
+
+  ArquivoINI:= TIniFile.Create(System.SysUtils.ExtractFilePath(ParamStr(0))+'\DBConnection.ini');
+  Server:= arquivoINI.ReadString('SISTEMA','Server','');
+  User:= arquivoINI.ReadString('SISTEMA','User','');
+  Password:= arquivoINI.ReadString('SISTEMA','password','');
+  Database:= arquivoINI.ReadString('SISTEMA','Database','');
+
+  try
+    Conexaobanco.Params.Strings[0] := 'User_Name='+ user;
+    Conexaobanco.Params.Strings[1] := 'Password='+ password;
+    Conexaobanco.Params.Strings[2] := 'Database='+ database;
+    Conexaobanco.Params.Strings[3] := 'Server='+ server;
+    Conexaobanco.Connected:= True;
+  except
+    on E : exception do
+    begin
+      Application.Terminate;
+    end;
+  end;
+end;
+
+procedure TdmConexao.SQLConnection1BeforeConnect(Sender: TObject);
+begin
+  SQLConnection1.Params.Values['Database'] := ExtractFilePath(ParamStr(0))+ 'db\Database.fdb';
+end;
+
+end.

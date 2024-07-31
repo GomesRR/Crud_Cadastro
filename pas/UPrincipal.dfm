@@ -11,8 +11,10 @@ object frmPrincipal: TfrmPrincipal
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OldCreateOrder = True
   Position = poDesktopCenter
   OnCreate = FormCreate
+  PixelsPerInch = 96
   TextHeight = 15
   object pnlAcao: TPanel
     Left = 0

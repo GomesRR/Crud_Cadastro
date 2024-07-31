@@ -3,28 +3,28 @@ unit uDmConexao;
 interface
 
 uses
-  System.SysUtils, System.Classes, Data.DBXFirebird, Data.DB, Data.SqlExpr,
-  Datasnap.DBClient, SimpleDS, IniFiles, Data.FMTBcd;
+  System.SysUtils, System.Classes, Data.DB, Data.SqlExpr,
+  Datasnap.DBClient, SimpleDS, IniFiles, Data.FMTBcd, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
+  FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
+  FireDAC.Phys.FB, FireDAC.Phys.FBDef, FireDAC.Comp.Client, FireDAC.Stan.Param,
+  FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet;
 
 type
   TdmConexao = class(TDataModule)
-    SQLConnection1: TSQLConnection;
     dsoListaProdutos: TDataSource;
-    dtsListaProdutos: TSimpleDataSet;
-    dtsListaProdutosID_PRODUTO: TIntegerField;
-    dtsListaProdutosNM_PRODUTO: TStringField;
-    dtsListaProdutosQT_SALDO: TIntegerField;
-    dtsListaProdutosVL_PRODUTO: TFMTBCDField;
-    dtsListaProdutosNM_CATEGORIA: TStringField;
-    QueryCadastroCategoria: TSQLQuery;
-    QueryListaCategoria: TSQLQuery;
-    QueryCadastroProduto: TSQLQuery;
-    QueryListaCategoriaID_CATEGORIA: TIntegerField;
-    QueryListaCategoriaNM_CATEGORIA: TStringField;
-    dsoListaCategoria: TDataSource;
-    QueryExcluirProduto: TSQLQuery;
+    ConexaoBanco: TFDConnection;
+    qryListaProdutos: TFDQuery;
+    qryListaProdutosID_PRODUTO: TIntegerField;
+    qryListaProdutosNM_PRODUTO: TStringField;
+    qryListaProdutosNM_CATEGORIA: TStringField;
+    qryListaProdutosQT_SALDO: TIntegerField;
+    qryListaProdutosVL_PRODUTO: TBCDField;
+    qryCadastroCategoria: TFDQuery;
+    qryCadastroProduto: TFDQuery;
+    qryListaCategoria: TFDQuery;
+    qryExcluirProduto: TFDQuery;
     procedure DataModuleCreate(Sender: TObject);
-    procedure SQLConnection1BeforeConnect(Sender: TObject);
   private
     { Private declarations }
   public
@@ -42,15 +42,31 @@ implementation
 
 procedure TdmConexao.DataModuleCreate(Sender: TObject);
 var
-  Caminho : String;
+  ArquivoINI: TIniFile;
+  Server, User, Password, Database, AuxError, Driver : string;
 begin
-  SQLConnection1.Connected := true;
-  dtsListaProdutos.Active := true;
-end;
+  if (Conexaobanco.Connected) then
+  begin
+    Conexaobanco.Connected:= False;
+  end;
 
-procedure TdmConexao.SQLConnection1BeforeConnect(Sender: TObject);
-begin
-  SQLConnection1.Params.Values['Database'] := ExtractFilePath(ParamStr(0))+ 'db\Database.fdb';
+  ArquivoINI:= TIniFile.Create(System.SysUtils.ExtractFilePath(ParamStr(0))+'\DBConnection.ini');
+  Database:= arquivoINI.ReadString('SISTEMA','Database','');
+
+  try
+    Conexaobanco.Params.Values['User_Name'] := 'sysdba';
+    Conexaobanco.Params.Values['Password']  := 'masterkey';
+    Conexaobanco.Params.Values['Database']  := Database;
+    Conexaobanco.Connected:= True;
+  except
+    on E : exception do
+    begin
+      Abort;
+    end;
+  end;
+
+  qryListaProdutos.Open();
+
 end;
 
 end.

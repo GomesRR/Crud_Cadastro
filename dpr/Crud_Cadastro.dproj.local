@@ -9,14 +9,27 @@
     <Transaction>2024/07/27 22:29:09.000.356,=D:\Ronilson\Projetos_Git\Crud_Cadastro\dpr\Unit1.pas</Transaction>
     <Transaction>2024/07/27 22:29:49.000.125,D:\Ronilson\Projetos_Git\Crud_Cadastro\dpr\Unit1.dfm=D:\Ronilson\Projetos_Git\Crud_Cadastro\pas\uDmConexao.dfm</Transaction>
     <Transaction>2024/07/27 22:29:49.000.125,D:\Ronilson\Projetos_Git\Crud_Cadastro\dpr\Unit1.pas=D:\Ronilson\Projetos_Git\Crud_Cadastro\pas\uDmConexao.pas</Transaction>
-    <Transaction>2024/07/28 12:49:21.684,=D:\Ronilson\Projetos_Git\Crud_Cadastro\dpr\Unit1.pas</Transaction>
-    <Transaction>2024/07/28 12:51:30.318,D:\Ronilson\Projetos_Git\Crud_Cadastro\pas\uCadCategoria.pas=D:\Ronilson\Projetos_Git\Crud_Cadastro\dpr\Unit1.pas</Transaction>
-    <Transaction>2024/07/28 12:51:30.318,D:\Ronilson\Projetos_Git\Crud_Cadastro\pas\uCadCategoria.dfm=D:\Ronilson\Projetos_Git\Crud_Cadastro\dpr\Unit1.dfm</Transaction>
-    <Transaction>2024/07/28 12:52:57.306,=D:\Ronilson\Projetos_Git\Crud_Cadastro\dpr\Unit1.pas</Transaction>
-    <Transaction>2024/07/28 12:54:42.926,D:\Ronilson\Projetos_Git\Crud_Cadastro\pas\uTipoCadastro.dfm=D:\Ronilson\Projetos_Git\Crud_Cadastro\dpr\Unit1.dfm</Transaction>
-    <Transaction>2024/07/28 12:54:42.926,D:\Ronilson\Projetos_Git\Crud_Cadastro\pas\uTipoCadastro.pas=D:\Ronilson\Projetos_Git\Crud_Cadastro\dpr\Unit1.pas</Transaction>
-    <Transaction>2024/07/28 12:57:10.558,=D:\Ronilson\Projetos_Git\Crud_Cadastro\dpr\Unit1.pas</Transaction>
-    <Transaction>2024/07/28 12:57:53.054,D:\Ronilson\Projetos_Git\Crud_Cadastro\pas\uCadProduto.dfm=D:\Ronilson\Projetos_Git\Crud_Cadastro\dpr\Unit1.dfm</Transaction>
-    <Transaction>2024/07/28 12:57:53.054,D:\Ronilson\Projetos_Git\Crud_Cadastro\pas\uCadProduto.pas=D:\Ronilson\Projetos_Git\Crud_Cadastro\dpr\Unit1.pas</Transaction>
-  </Transactions>
+    <Transaction>2024/07/28 12:49:21.000.684,=D:\Ronilson\Projetos_Git\Crud_Cadastro\dpr\Unit1.pas</Transaction>
+    <Transaction>2024/07/28 12:51:30.000.318,D:\Ronilson\Projetos_Git\Crud_Cadastro\pas\uCadCategoria.dfm=D:\Ronilson\Projetos_Git\Crud_Cadastro\dpr\Unit1.dfm</Transaction>
+    <Transaction>2024/07/28 12:51:30.000.318,D:\Ronilson\Projetos_Git\Crud_Cadastro\pas\uCadCategoria.pas=D:\Ronilson\Projetos_Git\Crud_Cadastro\dpr\Unit1.pas</Transaction>
+    <Transaction>2024/07/28 12:52:57.000.306,=D:\Ronilson\Projetos_Git\Crud_Cadastro\dpr\Unit1.pas</Transaction>
+    <Transaction>2024/07/28 12:54:42.000.926,D:\Ronilson\Projetos_Git\Crud_Cadastro\pas\uTipoCadastro.dfm=D:\Ronilson\Projetos_Git\Crud_Cadastro\dpr\Unit1.dfm</Transaction>
+    <Transaction>2024/07/28 12:54:42.000.926,D:\Ronilson\Projetos_Git\Crud_Cadastro\pas\uTipoCadastro.pas=D:\Ronilson\Projetos_Git\Crud_Cadastro\dpr\Unit1.pas</Transaction>
+    <Transaction>2024/07/28 12:57:10.000.558,=D:\Ronilson\Projetos_Git\Crud_Cadastro\dpr\Unit1.pas</Transaction>
+    <Transaction>2024/07/28 12:57:53.000.054,D:\Ronilson\Projetos_Git\Crud_Cadastro\pas\uCadProduto.pas=D:\Ronilson\Projetos_Git\Crud_Cadastro\dpr\Unit1.pas</Transaction>
+    <Transaction>2024/07/28 12:57:53.000.054,D:\Ronilson\Projetos_Git\Crud_Cadastro\pas\uCadProduto.dfm=D:\Ronilson\Projetos_Git\Crud_Cadastro\dpr\Unit1.dfm</Transaction>
+  </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="..\..\Crud_Cadastro"/>
+    <File Path="..\pas"/>
+    <File Path="..\pas\uCadCategoria.pas"/>
+    <File Path="..\pas\uCadCategoria.dfm"/>
+    <File Path="..\pas\uCadProduto.pas"/>
+    <File Path="..\pas\uCadProduto.dfm"/>
+    <File Path="..\pas\uDmConexao.pas"/>
+    <File Path="..\pas\uDmConexao.dfm"/>
+    <File Path="..\pas\UPrincipal.pas"/>
+    <File Path="..\pas\UPrincipal.dfm"/>
+    <File Path="..\pas\uTipoCadastro.pas"/>
+    <File Path="..\pas\uTipoCadastro.dfm"/>
+  </ProjectSortOrder>
 </BorlandProject>

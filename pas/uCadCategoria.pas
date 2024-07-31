@@ -31,11 +31,11 @@ uses uDmConexao;
 
 procedure TfrmCadCategoria.btnGravarClick(Sender: TObject);
 begin
-  dmConexao.QueryCadastroCategoria.Close;
-  dmConexao.QueryCadastroCategoria.SQL.Clear;
-  dmConexao.QueryCadastroCategoria.SQL.Add('INSERT INTO CATEGORIA (NM_CATEGORIA) VALUES(:NomeCategoria)');
-  dmConexao.QueryCadastroCategoria.ParamByName('NomeCategoria').Value := edtNomeCategoria.text;
-  dmConexao.QueryCadastroCategoria.ExecSQL;
+  dmConexao.qryCadastroCategoria.Close;
+  dmConexao.qryCadastroCategoria.SQL.Clear;
+  dmConexao.qryCadastroCategoria.SQL.Add('INSERT INTO CATEGORIA (NM_CATEGORIA) VALUES(:NomeCategoria)');
+  dmConexao.qryCadastroCategoria.ParamByName('NomeCategoria').Value := edtNomeCategoria.text;
+  dmConexao.qryCadastroCategoria.ExecSQL;
 
   edtNomeCategoria.Text := '';
   edtNomeCategoria.SetFocus;

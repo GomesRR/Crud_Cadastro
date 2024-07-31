@@ -11,8 +11,10 @@ object frmTipoCadastro: TfrmTipoCadastro
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OldCreateOrder = True
   Position = poMainFormCenter
   OnClose = FormClose
+  PixelsPerInch = 96
   TextHeight = 15
   object btnCadCategoria: TButton
     Left = 48

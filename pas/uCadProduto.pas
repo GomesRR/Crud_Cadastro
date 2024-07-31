@@ -41,12 +41,12 @@ uses uDmConexao;
 
 procedure TfrmCadProduto.cmbCategoriaChange(Sender: TObject);
 begin
-  dmConexao.QueryListaCategoria.Close;
-  dmConexao.QueryListaCategoria.SQL.Clear;
-  dmConexao.QueryListaCategoria.SQL.Add('SELECT * FROM CATEGORIA WHERE NM_Categoria = '+QuotedStr(cmbCategoria.text));
-  dmConexao.QueryListaCategoria.Open;
+  dmConexao.qryListaCategoria.Close;
+  dmConexao.qryListaCategoria.SQL.Clear;
+  dmConexao.qryListaCategoria.SQL.Add('SELECT * FROM CATEGORIA WHERE NM_Categoria = '+QuotedStr(cmbCategoria.text));
+  dmConexao.qryListaCategoria.Open;
 
-  ID_Categoria := dmConexao.QueryListaCategoria.FieldByName('ID_CATEGORIA').AsInteger;
+  ID_Categoria := dmConexao.qryListaCategoria.FieldByName('ID_CATEGORIA').AsInteger;
 
   if ((edtNomeProduto.text <> '') and (cmbCategoria.ItemIndex <> -1)) then
   begin
@@ -77,15 +77,15 @@ end;
 
 procedure TfrmCadProduto.btnGravarClick(Sender: TObject);
 begin
-  dmConexao.QueryCadastroProduto.Close;
-  dmConexao.QueryCadastroProduto.SQL.Clear;
-  dmConexao.QueryCadastroProduto.SQL.Add('INSERT INTO PRODUTOS (NM_PRODUTO, ID_CATEGORIA, QT_SALDO, VL_PRODUTO) ');
-  dmConexao.QueryCadastroProduto.SQL.Add('VALUES(:NomeProduto, :ID_Categora, :QT_Saldo, :VL_Produto)');
-  dmConexao.QueryCadastroProduto.ParamByName('NomeProduto').Value := edtNomeProduto.text;
-  dmConexao.QueryCadastroProduto.ParamByName('ID_Categora').Value := ID_Categoria;
-  dmConexao.QueryCadastroProduto.ParamByName('QT_Saldo').Value    := edtSaldo.text;
-  dmConexao.QueryCadastroProduto.ParamByName('VL_Produto').Value  := edtValor.text;
-  dmConexao.QueryCadastroProduto.ExecSQL;
+  dmConexao.qryCadastroProduto.Close;
+  dmConexao.qryCadastroProduto.SQL.Clear;
+  dmConexao.qryCadastroProduto.SQL.Add('INSERT INTO PRODUTOS (NM_PRODUTO, ID_CATEGORIA, QT_SALDO, VL_PRODUTO) ');
+  dmConexao.qryCadastroProduto.SQL.Add('VALUES(:NomeProduto, :ID_Categora, :QT_Saldo, :VL_Produto)');
+  dmConexao.qryCadastroProduto.ParamByName('NomeProduto').Value := edtNomeProduto.text;
+  dmConexao.qryCadastroProduto.ParamByName('ID_Categora').Value := ID_Categoria;
+  dmConexao.qryCadastroProduto.ParamByName('QT_Saldo').Value    := edtSaldo.text;
+  dmConexao.qryCadastroProduto.ParamByName('VL_Produto').Value  := edtValor.text;
+  dmConexao.qryCadastroProduto.ExecSQL;
 
   edtNomeProduto.Text := '';
   cmbCategoria.ItemIndex := -1;
@@ -102,15 +102,15 @@ procedure TfrmCadProduto.CarregarListaCategoria(Sender: TObject);
 begin
   cmbCategoria.Items.Clear;
 
-  dmConexao.QueryListaCategoria.Close;
-  dmConexao.QueryListaCategoria.SQL.Clear;
-  dmConexao.QueryListaCategoria.SQL.Add('SELECT * FROM CATEGORIA ORDER BY NM_CATEGORIA');
-  dmConexao.QueryListaCategoria.Open;
+  dmConexao.qryListaCategoria.Close;
+  dmConexao.qryListaCategoria.SQL.Clear;
+  dmConexao.qryListaCategoria.SQL.Add('SELECT * FROM CATEGORIA ORDER BY NM_CATEGORIA');
+  dmConexao.qryListaCategoria.Open;
 
-  while not dmConexao.QueryListaCategoria.eof do
+  while not dmConexao.qryListaCategoria.eof do
   begin
-    cmbCategoria.Items.Add(dmConexao.QueryListaCategoria.FieldByName('NM_CATEGORIA').AsString);
-    dmConexao.QueryListaCategoria.Next;
+    cmbCategoria.Items.Add(dmConexao.qryListaCategoria.FieldByName('NM_CATEGORIA').AsString);
+    dmConexao.qryListaCategoria.Next;
   end;
 end;
 
