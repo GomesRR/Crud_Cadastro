@@ -13,6 +13,7 @@ object frmCadProduto: TfrmCadProduto
   Font.Style = []
   OldCreateOrder = True
   Position = poMainFormCenter
+  OnClose = FormClose
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 15
@@ -49,8 +50,10 @@ object frmCadProduto: TfrmCadProduto
     Top = 21
     Width = 304
     Height = 23
+    CharCase = ecUpperCase
     TabOrder = 0
     OnChange = edtNomeProdutoChange
+    OnKeyPress = edtNomeProdutoKeyPress
   end
   object cmbCategoria: TComboBox
     Left = 99
@@ -60,6 +63,7 @@ object frmCadProduto: TfrmCadProduto
     TabOrder = 1
     Text = 'Selecione a Categoria...'
     OnChange = cmbCategoriaChange
+    OnKeyPress = cmbCategoriaKeyPress
   end
   object edtSaldo: TEdit
     Left = 99
@@ -68,14 +72,15 @@ object frmCadProduto: TfrmCadProduto
     Height = 23
     NumbersOnly = True
     TabOrder = 2
+    OnKeyPress = edtSaldoKeyPress
   end
   object edtValor: TEdit
     Left = 99
     Top = 116
     Width = 121
     Height = 23
-    NumbersOnly = True
     TabOrder = 3
+    OnKeyPress = edtValorKeyPress
   end
   object pnlContainer: TPanel
     Left = 0
@@ -85,9 +90,6 @@ object frmCadProduto: TfrmCadProduto
     Align = alBottom
     BevelOuter = bvLowered
     TabOrder = 4
-    ExplicitLeft = 248
-    ExplicitTop = 152
-    ExplicitWidth = 185
     object btnGravar: TButton
       Left = 318
       Top = 8

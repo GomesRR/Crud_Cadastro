@@ -35,6 +35,7 @@ end;
 
 procedure TfrmTipoCadastro.btnCadProdutoClick(Sender: TObject);
 begin
+  frmCadProduto.SN_Edicao := 'N';
   frmCadProduto.Showmodal;
 end;
 

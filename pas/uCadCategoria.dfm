@@ -27,6 +27,7 @@ object frmCadCategoria: TfrmCadCategoria
     Top = 21
     Width = 343
     Height = 23
+    CharCase = ecUpperCase
     TabOrder = 0
     OnChange = edtNomeCategoriaChange
   end
@@ -38,8 +39,6 @@ object frmCadCategoria: TfrmCadCategoria
     Align = alBottom
     BevelOuter = bvLowered
     TabOrder = 1
-    ExplicitLeft = -36
-    ExplicitWidth = 494
     object btnGravar: TButton
       Left = 342
       Top = 8

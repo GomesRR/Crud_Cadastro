@@ -19,6 +19,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure btnSairClick(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
+    procedure btnEditarClick(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -28,15 +30,24 @@ type
 var
   frmPrincipal: TfrmPrincipal;
 
+
 implementation
 
 {$R *.dfm}
 
-uses uDmConexao, uCadCategoria, uTipoCadastro;
+uses uDmConexao, uCadCategoria, uTipoCadastro, uCadProduto;
 
 procedure TfrmPrincipal.btnCadastrarClick(Sender: TObject);
 begin
   frmTipoCadastro.Showmodal;
+end;
+
+procedure TfrmPrincipal.btnEditarClick(Sender: TObject);
+begin
+  frmCadProduto.ID_Produto_Edicao := dmConexao.qryListaProdutos.FieldByName('ID_Produto').AsInteger;
+  frmCadProduto.SN_Edicao         := 'S';
+  frmCadProduto.Showmodal;
+
 end;
 
 procedure TfrmPrincipal.btnExcluirClick(Sender: TObject);
@@ -57,6 +68,11 @@ end;
 procedure TfrmPrincipal.btnSairClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TfrmPrincipal.DBGrid1DblClick(Sender: TObject);
+begin
+  btnEditar.Click();
 end;
 
 procedure TfrmPrincipal.FormCreate(Sender: TObject);

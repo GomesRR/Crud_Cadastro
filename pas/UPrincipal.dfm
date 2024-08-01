@@ -276,6 +276,7 @@ object frmPrincipal: TfrmPrincipal
         F2DE069FCFC30476988F0240524B011015100000000000000000000000000000
         00000000000000000000000000000000000000000000}
       Layout = blGlyphTop
+      OnClick = btnEditarClick
     end
     object btnExcluir: TSpeedButton
       Left = 176
@@ -426,6 +427,7 @@ object frmPrincipal: TfrmPrincipal
     TitleFont.Height = -12
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
+    OnDblClick = DBGrid1DblClick
     Columns = <
       item
         Alignment = taCenter
