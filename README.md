@@ -29,6 +29,24 @@ Em seguida, abra o arquivo "..\Crud_Cadastro\dpr\Crud_Cadastro.dproj" no delphi 
 A partir disto, acesse o diretório "..Crud_Cadastro\exe" e execute o "Crud_Cadastro.exe"
 
 
+### 📺 Imagens do Software
+<img src="/src/2024-08-03 16_04_59-Crud - Cadastro.png">
+<br>
+
+<img src="/src/2024-08-03 16_05_07-Crud - Cadastro.png">
+<br>
+
+<img src="/src/2024-08-03 16_05_16-Crud - Cadastro.png">
+<br>
+
+<img src="/src/2024-08-03 16_05_24-Crud - Cadastro.png">
+<br>
+
+<img src="/src/2024-08-03 16_05_37-Crud - Cadastro.png">
+<br>
+
+<img src="/src/2024-08-03 16_05_47-Crud - Cadastro.png">
+<br>
 
 ---
 ⌨️ Por [Ronilson Rodrigues] 😊
